@@ -38,10 +38,7 @@ public class WebSocketNetty4Server {
                         @Override
                         protected void initChannel(Channel ch) throws Exception {
                             ChannelPipeline pipeline = ch.pipeline();
-                                pipeline.addLast(new Netty4CodeFactory());
-//                            pipeline.addLast(new ProtobufVarint32FrameDecoder());
-//                            pipeline.addLast(new ProtobufDecoder(RequestMsg.Request.getDefaultInstance()));
-//                            pipeline.addLast(new ProtoBufServerHandler());
+                            pipeline.addLast(new Netty4CodeFactory());
                         }
 
                     })

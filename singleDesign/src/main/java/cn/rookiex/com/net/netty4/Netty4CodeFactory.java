@@ -13,7 +13,7 @@ import io.netty.handler.stream.ChunkedWriteHandler;
 public class Netty4CodeFactory extends ChannelInitializer<SocketChannel> {
 
 	/** 数据包最大长度 */
-	public static final int MAX_LENGH = 8192;
+	static final int MAX_LENGTH = 8192;
 	
 	@Override
 	protected void initChannel(SocketChannel ch) throws Exception {
@@ -28,7 +28,8 @@ public class Netty4CodeFactory extends ChannelInitializer<SocketChannel> {
 		//编码
 		//pipeline.addLast(new Netty4DataEncode());
 		//数据处理
-		pipeline.addLast("lengthDecode", new LengthDecoder(MAX_LENGH,0,4,0,4));
+		pipeline.addLast("webSocketDecode", new WebSocketMessageToByte());
+		pipeline.addLast("lengthDecode", new LengthDecoder(MAX_LENGTH,0,4,0,4));
 		pipeline.addLast(new Netty4MessageHandler());
 	}
 

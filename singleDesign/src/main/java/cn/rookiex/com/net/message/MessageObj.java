@@ -6,4 +6,22 @@ package cn.rookiex.com.net.message;
  * @ Description:
  **/
 public class MessageObj {
+    private int msgID;
+    private byte[] data;
+
+    public void setMsgID(int msgID) {
+        this.msgID = msgID;
+    }
+
+    public int getMsgID() {
+        return msgID;
+    }
+
+    public void setData(byte[] data) {
+        this.data = data;
+    }
+
+    public byte[] getData() {
+        return data;
+    }
 }
